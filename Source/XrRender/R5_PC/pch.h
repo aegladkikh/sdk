@@ -24,7 +24,7 @@
 #include "../Public/UIRender.h"
 #include "../Public/DebugRender.h"
 #include "../../xrEngine/Render.h"
-#include "../../BearBundle/BearGraphics/BearGraphics.hpp"
+//#include "../../BearBundle/BearGraphics/BearGraphics.hpp"
 #include "../Public/DebugRender.h"
 #include "../Public/KinematicsAnimated.h"
 

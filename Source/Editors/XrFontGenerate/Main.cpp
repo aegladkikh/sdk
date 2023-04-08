@@ -1,7 +1,8 @@
 ﻿// StalkerFontGenerate.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
-#include "..\..\BearBundle\BearCore\BearCore.hpp"
-#include "..\..\BearBundle\BearGraphics\BearGraphics.hpp"
+//#include "..\..\BearBundle\BearCore\BearCore.hpp"
+//#include "..\..\BearBundle\BearGraphics\BearGraphics.hpp"
+#include "RedImageTool/RedImage.hpp"
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include FT_GLYPH_H
@@ -11,7 +12,7 @@ bool shoc_format = false;
 bool GenerateFont(const bchar* file, bsize size, bsize&real_size, bsize width, bsize height, BearImage& Image,BearVector< BearVector3<float>>&OutVector)
 {
 	const bsize chars_size = 256;
-	BearImage ImageList[256];
+	RedImageTool::RedImage ImageList[256];
 	BearVector2<float> SizeList[256];
 	{
 		BearFileStream font_file;
