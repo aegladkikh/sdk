@@ -34,11 +34,11 @@ namespace LevelGraph
 
 	class CVertex : 
 		
-#ifndef MASTER_GOLD
+//#ifndef MASTER_GOLD
 		public
-#else
-		private
-#endif
+//#else
+//		private
+//#endif
 		NodeCompressed 
 	{
 	private:

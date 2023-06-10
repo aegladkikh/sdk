@@ -8,7 +8,8 @@
 
 #pragma once
 
-#include "object_interfaces.h"
+//#include "object_interfaces.h"
+#include "../../xrEngine/object_interfaces.h"
 
 class CSE_Abstract;
 

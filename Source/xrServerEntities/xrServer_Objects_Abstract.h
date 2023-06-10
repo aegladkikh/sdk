@@ -8,7 +8,8 @@
 #pragma once
 #pragma pack(push,4)
 #include "xrServer_Space.h"
-#	include "../xrCDB/xrCDB.h"
+#include "../xrCDB/xrCDB.h"
+#include "../../XrEngine/xrISEAbstract.h"
 
 class NET_Packet;
 class CDUInterface;

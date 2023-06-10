@@ -139,7 +139,7 @@ public:
 	void RunXrLC();
 	void RunXrDO();
 	void RunXrAI_Spawn(bool current_level);
-	void RunXrAI_AIMap(bool draw);
+	void RunXrAI_AIMap(bool draft);
 	void RunXrAI_Verify();
 	bool IsCompilerRunning();
 	bool IsGameRunning();

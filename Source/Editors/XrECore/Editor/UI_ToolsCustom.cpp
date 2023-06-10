@@ -57,6 +57,9 @@ void CToolCustom::SetAction(ETAction action)
     	m_bHiddenMode	= false; 
         break;
     case etaAdd:
+    case etaMove:
+    case etaRotate:
+    case etaScale:
     	m_bHiddenMode	= true; 
         break;
     }
@@ -86,11 +89,30 @@ void CToolCustom::SetAction(ETAction action)
     	UI->GetD3DWindow()->Cursor = crHelp;
     }*/
 
+    //if (m_Action == etaMove)
+    //{
+    //    if (!m_pAxisMoveObject && EPrefs->tools_show_move_axis)
+    //    {
+    //        m_pAxisMoveObject = Lib.CreateEditObject("editor\\axis");
+    //        m_Axis = etAxisUndefined;
+    //    }
+    //}
+    //else
+    //{
+    //    if (m_pAxisMoveObject)
+    //        Lib.RemoveEditObject(m_pAxisMoveObject);
+    //}
  
     UI->RedrawScene();
     ExecCommand(COMMAND_REFRESH_UI_BAR);
 }
 
+void CToolCustom::SetAxis(ETAxis axis)
+{
+    m_Axis = axis;
+    UI->RedrawScene();
+    ExecCommand(COMMAND_REFRESH_UI_BAR);
+}
 
 void CToolCustom::SetSettings(u32 mask, BOOL val)
 {

@@ -8,7 +8,8 @@
 
 #pragma once
 
-#include "alife_space.h"
+//#include "alife_space.h"
+#include "../../xrEngine/alife_space.h"
 #include "xr_graph_merge.h"
 #include "xrthread.h"
 #include "graph_abstract.h"

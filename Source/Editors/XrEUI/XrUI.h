@@ -15,7 +15,9 @@ public:
 	virtual void ResetEnd();
 	bool IsClosed()const { return !bOpen; }
 	virtual void Draw() = 0;
+
+	void SetTooltipThis(const char* text);
+
 protected:
 	bool bOpen;
 };
-

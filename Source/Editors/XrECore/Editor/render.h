@@ -239,5 +239,4 @@ IC  float   CalcSSA(Fvector& C, float R)
 }
 #endif
 extern ECORE_API CRender  	RImplementation;
-//.extern ECORE_API CRender*	Render;
-
+//extern ECORE_API CRender*	Render;

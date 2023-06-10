@@ -341,6 +341,42 @@ void CBuild::Load	(const b_params& Params, const IReader& _in_FS)
 				BT.THM.mip_filter		= THM->r_u32();
 				BT.THM.width			= THM->r_u32();
 				BT.THM.height           = THM->r_u32();
+
+				if (THM->find_chunk(THM_CHUNK_TEXTURE_TYPE))
+				{
+					BT.THM.type = (STextureParams::ETType)THM->r_u32();
+				}
+
+				if (THM->find_chunk(THM_CHUNK_DETAIL_EXT))
+				{
+					THM->r_stringZ(BT.THM.detail_name);
+					BT.THM.detail_scale = THM->r_float();
+				}
+
+				if (THM->find_chunk(THM_CHUNK_MATERIAL))
+				{
+					BT.THM.material = (STextureParams::ETMaterial)THM->r_u32();
+					BT.THM.material_weight = THM->r_float();
+				}
+
+				if (THM->find_chunk(THM_CHUNK_BUMP))
+				{
+					BT.THM.bump_virtual_height = THM->r_float();
+					BT.THM.bump_mode = (STextureParams::ETBumpMode)THM->r_u32();
+					if (BT.THM.bump_mode < STextureParams::tbmNone)
+					{
+						BT.THM.bump_mode = STextureParams::tbmNone; //.. временно (до полного убирания Autogen)
+					}
+					THM->r_stringZ(BT.THM.bump_name);
+				}
+
+				if (THM->find_chunk(THM_CHUNK_EXT_NORMALMAP))
+					THM->r_stringZ(BT.THM.ext_normal_map_name);
+
+				if (THM->find_chunk(THM_CHUNK_FADE_DELAY))
+					BT.THM.fade_delay = THM->r_u8();
+
+				//BT.THM.Load(*THM);
 				BOOL			bLOD=FALSE;
 				if (N[0]=='l' && N[1]=='o' && N[2]=='d' && N[3]=='\\') bLOD = TRUE;
 

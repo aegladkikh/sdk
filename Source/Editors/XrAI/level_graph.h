@@ -9,14 +9,16 @@
 #pragma once
 
 #ifndef AI_COMPILER
-#	include "../xrEngine/xrLevel.h"
+	#include "../../xrEngine/xrLevel.h"
 #else
-#include "../../xrGame/xrLevel.h"
+	#include "../../XrGame/xrLevel.h"
 #endif
 
-#include "alife_space.h"
+//#include "alife_space.h"
+#include "../../xrEngine/alife_space.h"
 #include "level_graph_space.h"
-#include "game_graph_space.h"
+//#include "game_graph_space.h"
+#include "../../xrEngine/game_graph_space.h"
 
 namespace LevelGraph {
 	class	CHeader;

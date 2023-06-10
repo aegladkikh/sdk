@@ -8,8 +8,10 @@
 
 #pragma once
 
-#include "../../xrGame/xrLevel.h"
-#include "alife_space.h"
+//#include "../../xrGame/xrLevel.h"
+//#include "alife_space.h"
+#include "../../XrGame/xrLevel.h"
+#include "../../xrEngine/alife_space.h"
 
 class CLevelGraph;
 class CGameLevelCrossTable;

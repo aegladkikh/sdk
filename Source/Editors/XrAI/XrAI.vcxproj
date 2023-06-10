@@ -147,10 +147,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\xrEngine\alife_space.cpp" />
     <ClCompile Include="..\..\xrEngine\xrLoadSurface.cpp" />
     <ClCompile Include="..\..\xrServerEntities\alife_human_brain.cpp" />
     <ClCompile Include="..\..\xrServerEntities\alife_monster_brain.cpp" />
-    <ClCompile Include="..\..\xrServerEntities\alife_space.cpp" />
     <ClCompile Include="..\..\xrServerEntities\PHNetState.cpp" />
     <ClCompile Include="..\..\xrServerEntities\PHSynchronize.cpp" />
     <ClCompile Include="..\..\xrServerEntities\smart_cast.cpp" />
@@ -236,11 +236,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\xrEngine\alife_space.h" />
     <ClInclude Include="..\..\xrServerEntities\alife_human_brain.h" />
     <ClInclude Include="..\..\xrServerEntities\alife_human_brain_inline.h" />
     <ClInclude Include="..\..\xrServerEntities\alife_monster_brain.h" />
     <ClInclude Include="..\..\xrServerEntities\alife_monster_brain_inline.h" />
-    <ClInclude Include="..\..\xrServerEntities\alife_space.h" />
     <ClInclude Include="..\..\xrServerEntities\associative_vector.h" />
     <ClInclude Include="..\..\xrServerEntities\associative_vector_compare_predicate.h" />
     <ClInclude Include="..\..\xrServerEntities\associative_vector_compare_predicate_inline.h" />
@@ -416,8 +416,8 @@
     <ResourceCompile Include="resource.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BearBundle\BearGraphics\Platform\Desktop\BearGraphics.vcxproj">
-      <Project>{3b75536d-008d-4495-9fe8-c7ae79ac6898}</Project>
+	<ProjectReference Include="..\..\External\RedImage\RedImageTool\RedImageTool.vcxproj">
+      <Project>{416e323e-3a4b-41a7-b0f5-7a8ec8517b11}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\XrAPI\XrAPI.vcxproj">
       <Project>{ff16ef0a-8a51-4c36-9213-4aa87cb4b317}</Project>

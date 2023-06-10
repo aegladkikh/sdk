@@ -26,8 +26,9 @@ extern "C"
 bool RedImage::LoadFromFile(const char * str)
 {
 	FILE*file = fopen(str, "rb");
-	if (!file)
+	if (!file) {
 		return false;
+	}
 	fseek(file, 0, SEEK_END);
 	u32 Size = ftell(file);
 	fseek(file, 0, SEEK_SET);

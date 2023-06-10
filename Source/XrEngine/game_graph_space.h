@@ -9,7 +9,7 @@
 #pragma once
 
 #include "associative_vector.h"
-#	include "xrLevel.h"
+#include "xrLevel.h"
 
 namespace GameGraph 
 {
@@ -25,9 +25,9 @@ namespace GameGraph
 
 	class SLevel
 	{
-#ifndef MASTER_GOLD
+//#ifndef MASTER_GOLD
 	public:
-#endif
+//#endif
 		shared_str				m_name;
 		Fvector					m_offset;
 		_LEVEL_ID				m_id;

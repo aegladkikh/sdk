@@ -119,7 +119,7 @@ void UIMainMenuForm::Draw()
 					}
 					if (ImGui::MenuItem("Low", ""))
 					{
-						LTools->RunXrAI_AIMap(false);
+						LTools->RunXrAI_AIMap(true);
 					}
 					if (ImGui::MenuItem("Verify", ""))
 					{

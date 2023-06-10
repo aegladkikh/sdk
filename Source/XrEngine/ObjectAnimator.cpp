@@ -13,7 +13,7 @@ bool motion_find_pred	(COMotion* a, 	shared_str b)	{	return a->name<b;}
 CObjectAnimator::CObjectAnimator()
 {
 	bLoop			= false;
-    m_Current		= 0;
+    m_Current		= nullptr;
     m_Speed			= 1.f;
 	m_Name			= "";
 }
@@ -25,10 +25,12 @@ CObjectAnimator::~CObjectAnimator()
 
 void CObjectAnimator::Clear()
 {
-	for(MotionIt m_it=m_Motions.begin(); m_it!=m_Motions.end(); m_it++)
-		xr_delete		(*m_it);
+	//for(MotionIt m_it=m_Motions.begin(); m_it!=m_Motions.end(); m_it++)
+	//	xr_delete		(*m_it);
+    for (auto& m_Motion : m_Motions)
+        xr_delete(m_Motion);
 	m_Motions.clear		();
-    SetActiveMotion		(0);
+    SetActiveMotion		(nullptr);
 }
 
 void CObjectAnimator::SetActiveMotion(COMotion* mot)
@@ -36,6 +38,11 @@ void CObjectAnimator::SetActiveMotion(COMotion* mot)
 	m_Current			= mot;
     if (m_Current) 		m_MParam.Set(m_Current);
 	m_XFORM.identity	();
+}
+
+COMotion* CObjectAnimator::FindMotionByName(LPCSTR name)
+{
+    return nullptr;
 }
 
 void CObjectAnimator::LoadMotions(LPCSTR fname)
@@ -67,11 +74,18 @@ void CObjectAnimator::LoadMotions(LPCSTR fname)
     }
 }
 
-void CObjectAnimator::Load(const char * name)
+//void CObjectAnimator::Load(const char * name)
+//{
+//	m_Name				= name;
+//	LoadMotions			(name); 
+//	SetActiveMotion		(0);
+//}
+
+void CObjectAnimator::Load(LPCSTR name)
 {
-	m_Name				= name;
-	LoadMotions			(name); 
-	SetActiveMotion		(0);
+    m_Name = name;
+    LoadMotions(name);
+    SetActiveMotion(nullptr);
 }
 
 void CObjectAnimator::Update(float dt)
@@ -87,33 +101,33 @@ void CObjectAnimator::Update(float dt)
 
 COMotion* CObjectAnimator::Play(bool loop, LPCSTR name)
 {
-	if (name&&name[0]){
-		MotionIt it = std::lower_bound(m_Motions.begin(),m_Motions.end(),name,motion_find_pred);
+	if (name && name[0])
+    {
+		auto it = std::lower_bound(m_Motions.begin(),m_Motions.end(),name, motion_find_pred);
+
         if ((it!=m_Motions.end())&&(0==xr_strcmp((*it)->Name(),name))){
             bLoop 		= loop;
             SetActiveMotion(*it);
 			m_MParam.Play	();
             return 		*it;
-        }else{
-            Debug.fatal	(DEBUG_INFO,"OBJ ANIM::Cycle '%s' not found.",name);
-            return NULL;
         }
-    }else{
-        if (!m_Motions.empty()){
-            bLoop 		= loop;
-            SetActiveMotion(m_Motions.front());
-			m_MParam.Play	();
-            return 		m_Motions.front();
-        }else{
-            Debug.fatal	(DEBUG_INFO,"OBJ ANIM::Cycle '%s' not found.",name);
-            return NULL;
-        }
+        Debug.fatal(DEBUG_INFO, "OBJ ANIM::Cycle '%s' not found.", name);
+        return nullptr;
     }
+
+    if (!m_Motions.empty()) {
+        bLoop = loop;
+        SetActiveMotion(m_Motions.front());
+        m_MParam.Play();
+        return 		m_Motions.front();
+    }
+    Debug.fatal(DEBUG_INFO, "OBJ ANIM::Cycle '%s' not found.", name);
+    return nullptr;
 }
 
 void CObjectAnimator::Stop()
 {
-	SetActiveMotion		(0);
+	SetActiveMotion		(nullptr);
 	m_MParam.Stop		();
 }
 

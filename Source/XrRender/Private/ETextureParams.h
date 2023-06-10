@@ -169,6 +169,7 @@ struct ECORE_API STextureParams{
 		}
 	}
     void Load (IReader& F);
+	void STextureParams::Load(IReader& F, const char* dbg_name);
     void Save (IWriter& F);
 #ifdef REDITOR
 	PropValue::TOnChange			OnTypeChangeEvent;

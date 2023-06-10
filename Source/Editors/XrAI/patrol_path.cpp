@@ -8,7 +8,8 @@
 
 #include "stdafx.h"
 #include "patrol_path.h"
-#include "levelgamedef.h"
+//#include "levelgamedef.h"
+#include "../../xrEngine/LevelGameDef.h"
 
 LPCSTR TEST_PATROL_PATH_NAME		= "val_dogs_nest4_centre";
 

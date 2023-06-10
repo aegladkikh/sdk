@@ -8,7 +8,8 @@
 
 #include "stdafx.h"
 #include "game_spawn_constructor.h"
-#include "object_broker.h"
+//#include "object_broker.h"
+#include "../../xrEngine/object_broker.h"
 #include "level_spawn_constructor.h"
 #include "xrServer_Objects_ALife_All.h"
 #include "xrai.h"

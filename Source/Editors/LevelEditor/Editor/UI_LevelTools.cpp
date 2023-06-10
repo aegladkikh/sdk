@@ -648,7 +648,8 @@ void CLevelTool::RunXrLC()
 
 
 	string_path CommandLine;
-	xr_sprintf(CommandLine, "XrLC.exe -f %s", Scene->m_LevelOp.m_FNLevelPath.c_str());
+	//xr_sprintf(CommandLine, "XrLC.exe -f %s", Scene->m_LevelOp.m_FNLevelPath.c_str());
+    xr_sprintf(CommandLine, "XrLC.exe -f %s -nolmap -no_invalidefaces", Scene->m_LevelOp.m_FNLevelPath.c_str());
 	Msg("~ Run %s.\n", CommandLine);
 	// Start the child process. 
 	if (!CreateProcess(NULL,   // No module name (use command line)
@@ -737,7 +738,7 @@ void CLevelTool::RunXrAI_Spawn(bool current_level)
 		return;
 	}
 }
-void CLevelTool::RunXrAI_AIMap(bool draw)
+void CLevelTool::RunXrAI_AIMap(bool draft)
 {
 	if (m_CompilerProcess.hProcess)
 		return;
@@ -753,7 +754,7 @@ void CLevelTool::RunXrAI_AIMap(bool draw)
 
 
 	string_path CommandLine;
-	xr_sprintf(CommandLine, "xrAI.exe -f %s %s", Scene->m_LevelOp.m_FNLevelPath.c_str(), draw?"-draft":"");
+	xr_sprintf(CommandLine, "xrAI.exe -f %s %s", Scene->m_LevelOp.m_FNLevelPath.c_str(), draft?"-draft":"");
 	Msg("~ Run %s.\n", CommandLine);
 	// Start the child process. 
 	if (!CreateProcess(NULL,   // No module name (use command line)

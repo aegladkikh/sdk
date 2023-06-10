@@ -36,24 +36,29 @@ struct face_props	{
 	void	set		(u16 mtl, u16 sect, const Fvector& n, u32 _flags){material=mtl;sector=sect;norm.set(n);flags =_flags;}
 };
 
+int commonEdgeIdxErrCnt = 0;
+
 IC u32 common_edge_idx(const MxFace& base_f, u32 base_edge_idx, const MxFace& test_f)
 {
 	VERIFY( base_edge_idx<3 );
 	MxVertexID bv0  = base_f[base_edge_idx];
 	MxVertexID bv1  = base_f[(base_edge_idx+1)%3];
 	if( bv0 > bv1 )
-		swap( bv0, bv1 );
+		std::swap( bv0, bv1 );
 	
 	for( u8 i =0;i<3; ++i )
 	{
 		MxVertexID tv0  = test_f[i];
 		MxVertexID tv1  = test_f[(i+1)%3];
 		if( tv0 > tv1 )
-			swap( tv0, tv1 );
+			std::swap( tv0, tv1 );
 		if( bv0==tv0 && bv1 == tv1 )
 			return i;
 	}
-	return u32(-1);
+	++commonEdgeIdxErrCnt;
+	// TODO: slip to slip. LOL
+	return u32(0);
+	//return u32(-1);
 }
 bool do_constrain(u32 base_edge_idx, u32 test_edg_idx, face_props& base_fprops, face_props& test_fprops )
 {
@@ -145,6 +150,7 @@ void SimplifyCFORM		(CDB::CollectorPacked& CL)
 			}
 		}
 	}
+	clMsg("fail common_edge_idx: %d", commonEdgeIdxErrCnt);
 	// collect edges
 	slim->collect_edges		();
 

@@ -13,3 +13,10 @@ void XrUI::ResetEnd()
 {
 
 }
+
+void XrUI::SetTooltipThis(const char* text)
+{
+	if (ImGui::IsItemHovered()) {
+		ImGui::SetTooltip(text);
+	}
+}

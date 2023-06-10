@@ -16,7 +16,7 @@ ISHTools::ISHTools(const ISHInit& init)
 
 void ISHTools::ViewSetCurrentItem(LPCSTR full_name)
 {
-	if (m_bLockUpdate) 	return;
+	//if (m_bLockUpdate) 	return;
 
     m_bLockUpdate		= TRUE;
     Ext.m_Items->SelectItem(full_name);

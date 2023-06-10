@@ -162,7 +162,7 @@ void Startup(LPSTR     lpCmdLine)
 #include "factory_api.h"
 
 #include "quadtree.h"
-#include "..\XrSE_Factory\xrSE_Factory_import_export.h"
+//#include "..\XrSE_Factory\xrSE_Factory_import_export.h"
 #include "XrSEFactoryManager.h"
 void buffer_vector_test		();
 

@@ -1,5 +1,8 @@
 #pragma once
-struct ISE_Abstract;
+
+#include "../XrEngine/xrISEAbstract.h"
+
+//struct ISE_Abstract;
 class XrSEFactoryManager
 {
 public:

@@ -65,6 +65,7 @@ void UIItemListForm::ClearList()
 
 void UIItemListForm::SelectItem(const char* name)
 {
+	if (name == nullptr) {return;}
 	xr_string Name = name;
 	Name.append("*");
 	UIItemListFormItem *Item = (UIItemListFormItem*)m_RootItem.FindItem(Name.c_str());
@@ -91,11 +92,33 @@ bool UIItemListForm::GetSelected(RStringVec& items) const
 	return false;
 }
 
+int UIItemListForm::GetSelected(LPCSTR pref, ListItemsVec& items, bool bOnlyObject)
+{
+	for (ListItem* prop : m_SelectedItems)
+	{
+		if (prop && (!bOnlyObject || (bOnlyObject && prop->m_Object)))
+		{
+			xr_string key = *prop->key;
+			if (pref) {
+				if (0 == key.find(pref))
+					items.push_back(prop);
+			}
+			else
+				items.push_back(prop);
+		}
+	}
+	return items.size();
+}
+
 void UIItemListForm::UpdateSelected(UIItemListFormItem* NewSelected)
 {
 	m_SelectedItem = NewSelected;
-	if (m_SelectedItem)
-		OnItemFocusedEvent(m_SelectedItem->Object);
-	else
+	if (m_SelectedItem) {
+		//#pragma todo("В AE: ошибка при клике в LeftBar -> Object items")
+		if (!OnItemFocusedEvent.empty())
+			OnItemFocusedEvent(m_SelectedItem->Object);
+	}
+	else {
 		OnItemFocusedEvent(nullptr);
+	}
 }

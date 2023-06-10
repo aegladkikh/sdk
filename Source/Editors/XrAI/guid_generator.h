@@ -10,7 +10,8 @@
 #define guid_generatorH
 #pragma once
 
-#include "../../xrGame/xrLevel.h"
+//#include "../../xrGame/xrLevel.h"
+#include "../../XrGame/xrLevel.h"
 
 ENGINE_API extern xrGUID generate_guid();
 ENGINE_API extern LPCSTR generate_guid(const xrGUID &guid, LPSTR buffer, const u32 &buffer_size);

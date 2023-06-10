@@ -6,6 +6,7 @@ public:
 	virtual ~UITopBarForm();
 	virtual void Draw();
 	void RefreshBar();
+	//void SetTooltipThis(const char* text);
 	bool VerifySpaceRestrictors()const {return m_VerifySpaceRestrictors;}
 private:
 

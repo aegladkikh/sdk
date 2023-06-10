@@ -206,7 +206,7 @@ void CSHGameMtlTools::SetCurrentItem(LPCSTR name, bool bView)
 	if (m_Mtl!=S){
         m_Mtl = S;
 	    ExecCommand(COMMAND_UPDATE_PROPERTIES);
-	 	if (bView) ViewSetCurrentItem(name);
+        if (bView) ViewSetCurrentItem(name);
    	}
 }
 

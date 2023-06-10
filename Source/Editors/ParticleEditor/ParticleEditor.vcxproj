@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\XrEngine\ObjectAnimator.cpp" />
     <ClCompile Include="..\XrECore\Editor\pDomain.cpp" />
     <ClCompile Include="noise.cpp" />
     <ClCompile Include="ParticleEditor.cpp" />
@@ -40,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="noise.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="StatGraph.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="UILeftBarForm.h" />
@@ -52,8 +52,14 @@
     <ClInclude Include="UI_ParticleTools.h" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\XrAPI\XrAPI.vcxproj">
+      <Project>{ff16ef0a-8a51-4c36-9213-4aa87cb4b317}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\XrCore\XrCore.vcxproj">
       <Project>{da642d7c-4fff-43dc-98f8-3f96caf1e4ba}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XrEngine\XrEngine.vcxproj">
+      <Project>{2820680f-79fe-4477-a14c-007f273a5fa8}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\XrParticles\XrParticles.vcxproj">
       <Project>{c50a948d-9175-4388-ae07-0cdab7fb69c8}</Project>
@@ -70,6 +76,13 @@
     <ProjectReference Include="..\XrEUI\XrEUI.vcxproj">
       <Project>{7e28883c-db86-4ee8-813a-991ba20c68c9}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ParticleEditor.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon.ico" />
+    <Image Include="icon1.ico" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

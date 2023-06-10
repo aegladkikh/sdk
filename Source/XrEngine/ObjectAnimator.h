@@ -11,8 +11,10 @@ class  CObjectAnimator
 class ENGINE_API CObjectAnimator
 #endif
 {
-private:
-	DEFINE_VECTOR		(COMotion*,MotionVec,MotionIt);
+	using MotionVec = xr_vector<COMotion*>;
+
+//private:
+//	DEFINE_VECTOR		(COMotion*,MotionVec,MotionIt);
 protected:
 	bool				bLoop;
 
